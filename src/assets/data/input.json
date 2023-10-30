@@ -5,11 +5,13 @@
             "pattern": "^[a-zA-Z]+(([-_ ][a-zA-Z])?[a-zA-Z]*)*$",
             "type": "username",
             "minlength": "3"
+            
         },
     "email":{
         "placeholder": "Адреса електронної пошти",
         "pattern": "^([0-9A-Za-z]{1}([-_\\.]?[0-9A-Za-z]+)*)@(([0-9A-Za-z]{1}([-_]?[0-9A-Za-z]+)*\\.){1,2}[A-Za-z]{2,})$",
-        "type": "email"
+        "type": "email",
+        "keyboardType": "email-address"
     },
     "password":{
          "placeholder": "Пароль",

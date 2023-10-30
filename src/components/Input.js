@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 
 const Input = ({ inputName, handleChange, inputValue, handleValidation, inputValidation }) => {
     const [isFocused, setIsFocused] = useState(type === 'password' ? true : false)
-    const { placeholder, pattern, type, minlength = '0' } = inputProps[inputName];
+    const { placeholder, pattern, type, minlength = '0', keyboardType = 'default' } = inputProps[inputName];
     const [secureTextShow, setSecureTextShow] = useState(type === 'password')
     const inputInvalid = 'red'
     const toggleFocus = focusStatus => {
@@ -63,7 +63,8 @@ const Input = ({ inputName, handleChange, inputValue, handleValidation, inputVal
             type={type}
             minlength={minlength}
             maxlength='30'
-            secureTextEntry={ secureTextShow}
+            secureTextEntry={secureTextShow}
+            keyboardType={keyboardType}
             required />
          
             {type === 'password' && <ShowButton titleShow={secureTextShow ? "Показати" : "Сховати"} onPressShow={toggleSecureTextShow} />} 

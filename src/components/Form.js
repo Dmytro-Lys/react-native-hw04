@@ -5,10 +5,12 @@ import FormTitle from './FormTitle';
 import Input from './Input';
 import FormSubmitButton from './FormSubmitButton';
 import LinkButton from './LinkButton';
+import AddAvatar from './AddAvatar';
 
 const windowWidth = Dimensions.get('window').width;
 
-const Form = ({ fields, formStyle, fieldsStyle, formTitle, submitButtonText, linkButtonText, children }) => {
+const Form = ({ fields, formStyle, fieldsStyle, formTitle, submitButtonText, linkButtonText, addAvatar = false}) => {
+
 
 const styles = StyleSheet.create({
   formWrapper: {
@@ -37,10 +39,13 @@ const styles = StyleSheet.create({
     const defaultValues = fields.reduce((obj, fieldName) => {
         return {...obj, [fieldName]: ''}
     }, {})
-    
+    if (addAvatar) defaultValues.avatar = null
+  
     const defaultValidation = fields.reduce((obj, fieldName) => {
         return {...obj, [fieldName]: true}
     }, {})
+  
+  
 
   const [formValues, setFormValues] = useState(defaultValues)
   const [formValidation, setFormValidation] = useState(defaultValidation);
@@ -79,8 +84,11 @@ useEffect(() => {
   };
   
   const validationRequired = () => {
-    if (Object.values(formValues).some( value => !value)){
-      Object.entries(formValues).forEach(([key, value]) => {
+    const requiredFields = addAvatar ?   fields.reduce((obj, fieldName) => {
+      return {...obj, [fieldName] : formValues[fieldName]}
+    }, {}) : formValues
+    if (Object.values(requiredFields).some(value => !value)) {
+      Object.entries(requiredFields).forEach(([key, value]) => {
         if (!value) {
           formValidation[key] = false
         }
@@ -135,7 +143,7 @@ useEffect(() => {
               </View>
               <FormSubmitButton text={submitButtonText} onPress={onSubmit} />
               <LinkButton text={linkButtonText} onPress={onLink} />
-              {children}  
+              {addAvatar && <AddAvatar avatarImage={formValues.avatar} handleChange={handleFormValueChange}/>}
             </View> 
             </View>
             </KeyboardAvoidingView> 

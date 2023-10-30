@@ -1,17 +1,11 @@
-import { StyleSheet, View, ImageBackground, } from 'react-native';
-import { useState } from "react";
+import { StyleSheet, ImageBackground, } from 'react-native';
 import bgImage from '../assets/images/photo_bg.jpg'
-import defaultAvatar from '../assets/images/avatar.jpg'
-import {Form, Avatar, SvgPlusButton} from '../components';
+
+import {Form} from '../components';
 
 const RegistrationScreen = () => {
   
-  const [avatarImage, setAvatarImage] = useState(null)
   
-  const addAvatar = () => setAvatarImage(defaultAvatar)
-  
-  const removeAvatar = () => setAvatarImage(null)
-
   return (
     
     <ImageBackground source={bgImage} resizeMode="cover" style={styles.imageBg}>
@@ -22,11 +16,8 @@ const RegistrationScreen = () => {
         formTitle="Реєстрація"
         submitButtonText="Зареєструватися"
         linkButtonText="Вже є акаунт? Увійти"
+        addAvatar={true}
       >
-        <View style={styles.box}>
-          {avatarImage ? <Avatar avatarImage={avatarImage} size={120} /> : <Avatar size={120} />}
-          {avatarImage ? <SvgPlusButton onPress={removeAvatar} styleButton={{ ...styles.buttonAdd, ...styles.buttonRemove }} stroke='#e8e8e8' rotate='45'/> : <SvgPlusButton onPress={addAvatar} styleButton={styles.buttonAdd} stroke='#ff6c00'/>}
-        </View>
       </Form>
     </ImageBackground>  
         
