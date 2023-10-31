@@ -10,7 +10,7 @@
     "email":{
         "placeholder": "Адреса електронної пошти",
         "pattern": "^([0-9A-Za-z]{1}([-_\\.]?[0-9A-Za-z]+)*)@(([0-9A-Za-z]{1}([-_]?[0-9A-Za-z]+)*\\.){1,2}[A-Za-z]{2,})$",
-        "type": "email",
+        "type": "emailAddress",
         "keyboardType": "email-address"
     },
     "password":{
@@ -18,5 +18,21 @@
         "pattern": "(?=.*[0-9])(?=.*[!@#$%^&*()\\-\\_=+,<.>/?;:'\\[\\]{}|])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*()\\-\\_=+,<.>/?;:'\\[\\]{}|]+",
         "type": "password",
         "minlength": "8"
+    },
+     "postName":
+        {
+            "placeholder": "Назва",
+            "pattern": "^[a-zA-Zа-яієїА-ЯІЄЇ]+([- '][0-9a-zа-яієїA-ZА-ЯІЄЇ])*$",
+            "type": "name",
+            "minlength": "3"
+            
+        },
+      "postLocation":
+        {
+            "placeholder": "Місцевість",
+            "pattern": "^[a-zA-Zа-яієїА-ЯІЄЇ]+([- ',\\.][0-9a-zа-яієїA-ZА-ЯІЄЇ])*$",
+            "type": "location",
+            "minlength": "3"
+            
+        }  
     }
-}

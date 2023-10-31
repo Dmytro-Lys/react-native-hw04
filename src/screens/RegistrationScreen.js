@@ -30,27 +30,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'flex-end',
   },
-   box: {
-    position: 'absolute',
-    top: -60,
-    left: '50%',
-    transform: [{translateX: -50}],
-  },
-  buttonAdd: {
-    position: 'absolute',
-    right: -12.5,
-    bottom: 12.5,
-    width: 25,
-    height: 25,
-    backgroundColor: 'white',
-    borderRadius: 25,
-    borderWidth: 1,
-    borderColor: '#ff6c00',
-  },
-  buttonRemove: {
-     borderColor: '#e8e8e8',
-  }, 
-   form: {
+  form: {
     paddingTop: 92,
     paddingBottom: 45,
   },

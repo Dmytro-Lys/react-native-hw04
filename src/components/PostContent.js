@@ -1,24 +1,68 @@
-import {StyleSheet, ImageBackground } from "react-native"
+import {StyleSheet, ImageBackground, View , Text} from "react-native"
+import CameraBlackSvg from "../assets/images/camera_black.svg";
+import CameraWhiteSvg from "../assets/images/camera_white.svg";
+import defaultPost from '../assets/images/post.jpg'
+import SvgButton from "./SvgButton";
 
+const PostContent = ({ contentImage , handleChange }) => {
+  
+  const addPost = () => handleChange("postImage", { value: defaultPost, validation: true })
+  
+  const removePost = () =>  handleChange("postImage", { value: null, validation: false })
 
-const PostContent = (contentImage = null) => {
-    return (
-        <ImageBackground source={contentImage } resizeMode="cover" style={styles.contentImage} />
+   
+  
+  return (
+      <View style={styles.contentContainer }>
+      <ImageBackground source={contentImage.value} resizeMode="cover" style={contentImage.validation ? styles.contentImage :{...styles.contentImage, ...styles.contentImageInvalid} } >
+        {contentImage.value 
+          ? <SvgButton styleButton={{ ...styles.buttonAdd, ...styles.buttonRemove }} onPress={removePost} svgWidth='24' svgHeight='24' svgFile={CameraWhiteSvg} /> 
+          : <SvgButton styleButton={styles.buttonAdd} onPress={addPost} svgWidth='24' svgHeight='24' svgFile={CameraBlackSvg}  />
+        }            
+        </ImageBackground>
+        <Text style={styles.contentText }>{contentImage.value ? "Редагувати фото" : "Завантажте фото"}</Text>
+      </View>
    )
 }
 
- const styles = StyleSheet.create({
+const styles = StyleSheet.create({
+  contentContainer: {
+    flex: 1,
+    marginBottom: 32,
+    maxHeight: 300,
+    // height: 300,
+   },
    contentImage: {
       flex: 1,
       justifyContent: 'center',
+      alignItems: 'center',
       borderRadius: 8,
-      maxWidth: '100%',
+      // maxWidth: '100%',
       maxHeight: 240,
-      width: size,
-      height: size, 
-      backgroundColor: '#f6f6f6',
-      overflow: 'hidden',
-  },
+      marginBottom: 8,
+      // height: 240,
+      backgroundColor: '#e8e8e8',
+     overflow: 'hidden',
+    },
+   contentImageInvalid: {
+     borderWidth: 1,
+     borderColor: 'red',
+   },
+   buttonAdd: {
+        width: 60,
+        maxHeight: 60,
+        borderRadius: 60,
+        backgroundColor: '#FFF',
+   },
+   buttonRemove: {
+        backgroundColor: 'rgba(255, 255, 255, 0.30)',
+   },
+   contentText: {
+     fontFamily: 'Roboto-Regular',
+     fontSize: 16,
+     color: "#BDBDBD",
+     
+   }
  
 });
 

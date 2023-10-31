@@ -3,31 +3,32 @@ import TextButton from "./TextButton";
 import PropTypes from "prop-types"
 
 
-const FormSubmitButton = ({text, onPress}) => {
-    return (
-        <TextButton text={text} onPress={onPress} styleButton={styles.buttonSubmit} styleText={styles.buttonSubmitText} />
-     )
-}
-
-
+const FormSubmitButton = ({ text, onPress, marginTop=43,  buttonColor='#FF6C00', textColor = 'white', disabled = false }) => {
+    
 const styles = StyleSheet.create({
     buttonSubmit: {
         borderRadius: 100,
-        marginTop: 43,
+        marginTop: marginTop,
         paddingHorizontal: 32,
         paddingVertical: 16,
-        backgroundColor: '#FF6C00',
+        backgroundColor: buttonColor,
 
     },
     buttonSubmitText: {
         fontFamily: 'Roboto-Regular',
         fontSize: 16,
         textAlign: 'center',
-        color: 'white',
+        color: textColor,
         
     }
 
 })   
+    return (
+        <TextButton text={text} onPress={onPress} styleButton={styles.buttonSubmit} styleText={styles.buttonSubmitText} disabled={disabled} />
+     )
+}
+
+
 
 export default FormSubmitButton;
 

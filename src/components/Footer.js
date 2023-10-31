@@ -7,7 +7,7 @@ import UserSvg from "../assets/images/user.svg";
 
 
 
-const Footer = () => {
+const Footer = ({children}) => {
     const addPost = () => alert("Add Post")
 
     const showEverythin = () => alert("Show everythin")

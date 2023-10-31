@@ -2,11 +2,13 @@ import { Pressable, Text } from "react-native";
 import PropTypes from "prop-types";
 
 
-const TextButton = ({ text, onPress, styleButton, styleText }) => {
+const TextButton = ({ text, onPress, styleButton, styleText, disabled }) => {
     return (
          <Pressable
             onPress={onPress}
+            disabled={disabled}
             style={styleButton}>
+            
            <Text style={styleText}>{text}</Text>
         </Pressable>
     )
