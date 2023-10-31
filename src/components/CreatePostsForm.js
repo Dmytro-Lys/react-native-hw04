@@ -5,6 +5,7 @@ import CreatePostsInput from './CreatePostsInput';
 import FormSubmitButton from './FormSubmitButton';
 import SvgButton from './SvgButton';
 import TrashSvg from "../assets/images/trash.svg";
+import MapPinSvg from "../assets/images/map-pin.svg";
 
 
 const CreatePostsForm = () => {
@@ -16,14 +17,16 @@ const CreatePostsForm = () => {
     }
   
     const [formValues, setFormValues] = useState(defaultValues)
-    const [isShownKeyboard, setIsShownKeyboard] = useState(false)
-      
+    const [isShownKeyboard, setIsShownKeyboard] = useState(null)
+    const [hasShowedKeyboard, setHasShowedKeyboard] = useState(false)
+    
     useEffect(() => {
         const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
-            setIsShownKeyboard(true);
+            if (!hasShowedKeyboard) setHasShowedKeyboard(true)
+            setIsShownKeyboard(Keyboard._currentlyShowing.endCoordinates.height);
         });
         const hideSubscription = Keyboard.addListener('keyboardDidHide', () => {
-            setIsShownKeyboard(false);
+            setIsShownKeyboard(null);
         });
 
         return () => {
@@ -60,26 +63,33 @@ const CreatePostsForm = () => {
         console.log(sendValues)
         reset()
     }
+    
+    const showMap = () => alert("show map")
 
     return (
          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"}>
                 <View style={styles.formWrapper}>
-                    <View style={isShownKeyboard ? { ...styles.form, paddingBottom: 0 } : styles.form}> 
+                    <View style={isShownKeyboard ? { ...styles.form, marginTop: -1 * isShownKeyboard} : styles.form}> 
                         <PostContent contentImage={formValues.postImage} handleChange={handleFormValueChange}/>
                         <View style={styles.formElements}>
                             <CreatePostsInput inputName="postName" handleChange={handleFormValueChange} inputValue={formValues.postName} />
-                            <CreatePostsInput inputName="postLocation" handleChange={handleFormValueChange} inputValue={formValues.postLocation} />
+                            <CreatePostsInput inputName="postLocation" handleChange={handleFormValueChange} inputValue={formValues.postLocation} >
+                                <SvgButton styleButton={styles.buttonMap} onPress={showMap} svgWidth='24' svgHeight='24' svgFile={MapPinSvg} />
+                            </CreatePostsInput>    
                         </View>
                         {checkEmpty() || !checkFormValidation()
-                            ? <FormSubmitButton text="Опублікувати" onPress={onSubmit} marginTop={31} buttonColor='#f6f6f6' textColor='#bdbdbd' disabled={true} />
-                            : <FormSubmitButton text="Опублікувати" onPress={onSubmit} marginTop={31}/>
+                            ? <FormSubmitButton text="Опублікувати" onPress={onSubmit} marginTop={0} buttonColor='#f6f6f6' textColor='#bdbdbd' disabled={true} />
+                            : <FormSubmitButton text="Опублікувати" onPress={onSubmit} marginTop={0}/>
                         }
-                        <SvgButton styleButton={isShownKeyboard ? { ...styles.buttonTrash, marginTop: 8 } : styles.buttonTrash} onPress={reset} svgWidth='24' svgHeight='24' svgFile={TrashSvg}  />
+                        
                     </View> 
                 </View>
+                <SvgButton styleButton={!hasShowedKeyboard ? { ...styles.buttonTrash, bottom: 44 }: styles.buttonTrash} onPress={reset} svgWidth='24' svgHeight='24' svgFile={TrashSvg}  />
             </KeyboardAvoidingView> 
+           
         </TouchableWithoutFeedback>     
+       
     )
 }
 const windowWidth = Dimensions.get('window').width;
@@ -87,18 +97,22 @@ const windowWidth = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   formWrapper: {
     flex: 1,
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    width: windowWidth,
+      width: windowWidth,
   },
   form: {
-    flex: 1,
+      flex: 1,
+      flexDirection: 'column',
     paddingHorizontal: 16,
-    // paddingTop: 32,
-    // paddingBottom: 22,
+      paddingTop: 32,
+    rowGap: 32,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     backgroundColor: '#fff',
+    },
+    formWithKeyboard: {
+        paddingTop: 0,
+        marginTop: -200,
+        paddingBottom: 0,
   },
   formElements: {
     flex: 1,
@@ -106,14 +120,28 @@ const styles = StyleSheet.create({
     rowGap: 16,
     },
     buttonTrash: {
+        position: 'absolute',
+        bottom: 0,
+        left: '50%',
+        transform: [{translateX: -35}],
         maxWidth: 70,
         width: 70,
         maxHeight: 40,
+        height: 40,
         borderRadius: 40,
         backgroundColor: '#f6f6f6',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        marginTop: 108,
+    },
+     buttonMap: {
+        position: 'absolute',
+        bottom: 16,
+        left: 0,
+        // transform: [{translateX: -35}],
+        maxWidth: 24,
+        width: 24,
+        maxHeight: 24,
+        height: 24,
+        // borderRadius: 40,
+        // backgroundColor: '#f6f6f6',
   }
  
 });

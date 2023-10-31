@@ -1,4 +1,4 @@
-import {StyleSheet, View, Dimensions } from "react-native"
+import {StyleSheet, View, Dimensions, ScrollView } from "react-native"
 // import CreatePostsForm from "../components/CreatePostsForm"
 import { Header, CreatePostsForm, SvgButton } from "../components"
 import ArrowLeftSvg from "../assets/images/arrow-left.svg";
@@ -8,6 +8,7 @@ import ArrowLeftSvg from "../assets/images/arrow-left.svg";
 const CreatePostsScreen = () => {
     const back = () => alert('back')
     return (
+        
         <View style={styles.container}>
             <Header title="Створити публікацію">
                 <SvgButton styleButton={styles.buttonSvg} onPress={back} svgWidth='24' svgHeight='24' svgFile={ArrowLeftSvg} />
@@ -23,15 +24,16 @@ const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
 
     container: {
+        // position: 'relative',
         flex: 1,
         flexDirection: 'column',
         // flexDirection: 'row',
         // justifyContent: 'flex-end',
         alignItems: 'flex-end',
         paddingTop: 43,
-        paddingBottom: 22,
+        // paddingBottom: 22,
         // columnGap: 32,
-        rowGap: 32,
+        // rowGap: 32,
         //  maxHeight: windowHeight,
         // height: windowHeight,
         // justifyContent: 'center',
