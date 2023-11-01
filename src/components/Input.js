@@ -23,7 +23,6 @@ const Input = ({ inputName, handleChange, inputValue, handleValidation, inputVal
     const inputValidate = value => value.match(pattern) !== null && value.length >= minlength
     
     const handleChangeInput = value => {
-        const text = value
         handleChange(inputName, value)
         toggleValidate(inputValidate(value))
      }

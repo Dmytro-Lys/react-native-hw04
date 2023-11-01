@@ -34,5 +34,12 @@
             "type": "location",
             "minlength": "3"
             
-        }  
+        },  
+        "comment":
+        {
+            "placeholder": "Коментувати...",
+            "pattern": "^[0-9a-zA-Zа-яієїА-ЯІЄЇ]+([.\\s])*$",
+            "type": "none",
+            "minlength": "3"
+        }   
     }

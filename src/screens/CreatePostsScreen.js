@@ -19,27 +19,15 @@ const CreatePostsScreen = () => {
 }
 
 // const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
+// const windowHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
 
     container: {
-        // position: 'relative',
         flex: 1,
         flexDirection: 'column',
-        // flexDirection: 'row',
-        // justifyContent: 'flex-end',
-        alignItems: 'flex-end',
+         alignItems: 'flex-end',
         paddingTop: 43,
-        // paddingBottom: 22,
-        // columnGap: 32,
-        // rowGap: 32,
-        //  maxHeight: windowHeight,
-        // height: windowHeight,
-        // justifyContent: 'center',
-        // maxWidth: windowWidth
-        // paddingHorizontal: 16,
-        // paddingTop: 32,
     },
      buttonSvg: {
         maxWidth: 40,
