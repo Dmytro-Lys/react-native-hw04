@@ -5,10 +5,10 @@ import SendSvg from "../assets/images/send.svg";
 import inputProps from "../assets/data/input.json"
 
 
-const CommentInput = () => {
+const CommentInput = ({hasShowedKeyboard}) => {
     const [isFocused, setIsFocused] = useState(false)
     const [inputValue, setInputValue]= useState('')
-    const { placeholder, pattern, type, minlength = '0', keyboardType = 'default' } = inputProps[inputName];
+    const { placeholder, pattern, type, minlength = '0', keyboardType = 'default' } = inputProps['comment'];
     const toggleFocus = focusStatus => {
        if (isFocused !== focusStatus) setIsFocused(focusStatus)    
     }
@@ -22,7 +22,7 @@ const CommentInput = () => {
     }
 
      return (
-        <View style={styles.inputBox}>
+        <View style={hasShowedKeyboard ?  styles.inputBox : {...styles.inputBox, bottom: 43}}>
          
         <TextInput
             style={[styles.input, isFocused && styles.inputFocused]}
@@ -37,9 +37,10 @@ const CommentInput = () => {
             minlength={minlength}
             maxlength='300'
             keyboardType={keyboardType}
+            multiline={true}
             required />
          
-            <SvgButton styleButton={styles.buttonSvg} onPress={onSubmit} svgWidth='24' svgHeight='24' svgFile={SendSvg} />  
+            <SvgButton styleButton={styles.buttonSvg} onPress={onSubmit} svgWidth='34' svgHeight='34' svgFile={SendSvg} />  
            
         </View>
       )
@@ -53,9 +54,9 @@ const windowWidth = Dimensions.get('window').width;
     inputBox: {
          position: 'absolute',
         
-         width: windowWidth, 
+         width: windowWidth - 32, 
        bottom: 0,
-    left: 0,
+    left: 16,
     // transform: [{translateX: -50}],
     },
     input: {
@@ -74,11 +75,11 @@ const windowWidth = Dimensions.get('window').width;
         backgroundColor: '#fff', 
      },
      buttonSvg: {
-        maxWidth: 34,
+        width: 34,
         height: 34,
         position: 'absolute',
-        bottom: 0,
-        right: 34,
+        bottom: 8,
+        right: 8,
         borderRadius: 34,
         backgroundColor: '#FF6C00',
     }

@@ -1,4 +1,5 @@
-import {StyleSheet, View, Dimensions, ScrollView } from "react-native"
+import { StyleSheet, View, Dimensions, ScrollView } from "react-native"
+
 // import CreatePostsForm from "../components/CreatePostsForm"
 import { Header, CreatePostsForm, SvgButton } from "../components"
 import ArrowLeftSvg from "../assets/images/arrow-left.svg";
