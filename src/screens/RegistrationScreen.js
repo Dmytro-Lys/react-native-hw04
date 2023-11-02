@@ -1,4 +1,5 @@
 import { StyleSheet, ImageBackground, } from 'react-native';
+
 import bgImage from '../assets/images/photo_bg.jpg'
 
 import {Form} from '../components';

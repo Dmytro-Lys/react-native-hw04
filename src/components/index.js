@@ -15,3 +15,4 @@ export { default as ErrorMessage } from "./ErrorMessage.js";
 export { default as Form } from "./Form.js";
 export { default as CreatePostsForm } from "./CreatePostsForm.js";
 export { default as AddAvatar } from "./AddAvatar.js";
+export { default as LogOut } from "./LogOut.js";

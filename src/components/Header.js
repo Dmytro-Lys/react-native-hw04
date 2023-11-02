@@ -17,10 +17,6 @@ const windowWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
     containerHeader: {
-        // position: 'relative',
-        // position: 'absolute',
-        // top: 20,
-        // left: 0,
         maxHeight: 44,
         borderBottomWidth: 1,
         borderColor: "lightgray",

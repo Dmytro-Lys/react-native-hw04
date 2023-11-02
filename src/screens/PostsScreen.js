@@ -16,9 +16,9 @@ const PostsScreen = () => {
     
     return (
         <View style={styles.container}>
-            <Header title="Публікації">
+            {/* <Header title="Публікації">
                 <SvgButton styleButton={styles.buttonSvg} onPress={logOut} svgWidth='24' svgHeight='24' svgFile={LogOutSvg} />
-            </Header>
+            </Header> */}
             <ScrollView style={styles.postsContainer}>
                 <View style={styles.userContainer}>
                     <Avatar avatarImage={defaultAvatar}  />
@@ -28,12 +28,12 @@ const PostsScreen = () => {
                     </View>
                 </View>    
             </ScrollView>
-
+{/* 
             <Footer>
                 <SvgButton styleButton={styles.buttonSvgFooter} onPress={showEverythin} svgWidth='24' svgHeight='24' svgFile={GridSvg}/>
                 <SvgPlusButton onPress={addPost} styleButton={styles.buttonAdd} stroke='white' />
                 <SvgButton styleButton={styles.buttonSvgFooter} onPress={showUser} svgWidth='24' svgHeight='24' svgFile={UserSvg} />
-            </Footer>
+            </Footer> */}
 
        </View>     
   )
@@ -44,7 +44,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        paddingTop: 43,
+        backgroundColor: 'white',
+        // paddingTop: 43,
     },
     postsContainer: {
         flex: 1,

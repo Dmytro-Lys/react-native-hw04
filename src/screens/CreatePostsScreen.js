@@ -11,9 +11,9 @@ const CreatePostsScreen = () => {
     return (
         
         <View style={styles.container}>
-            <Header title="Створити публікацію">
+            {/* <Header title="Створити публікацію">
                 <SvgButton styleButton={styles.buttonSvg} onPress={back} svgWidth='24' svgHeight='24' svgFile={ArrowLeftSvg} />
-            </Header> 
+            </Header>  */}
            <CreatePostsForm/>
         </View>
     )

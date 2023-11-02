@@ -1,5 +1,7 @@
 import { StyleSheet, View, TouchableWithoutFeedback, KeyboardAvoidingView,  Dimensions, Keyboard} from 'react-native';
 import { useState, useEffect } from "react";
+import { useNavigation } from '@react-navigation/native';
+
 import PropTypes from "prop-types";
 import FormTitle from './FormTitle';
 import Input from './Input';
@@ -36,6 +38,8 @@ const styles = StyleSheet.create({
  
 });
 
+    const navigation = useNavigation();
+  
     const defaultValues = fields.reduce((obj, fieldName) => {
         return {...obj, [fieldName]: ''}
     }, {})
@@ -107,8 +111,8 @@ useEffect(() => {
     validationRequired();
     if (!checkFormValidation()) return alert('Form field values ​​are incorrect')
     console.log(formValues)
-    
     reset()
+    navigation.navigate("Home")
   }
   
   const reset = () => {
@@ -126,9 +130,8 @@ useEffect(() => {
   }
 
 
-  const onLink = () => {
-    alert("Link")
-  }
+  const onLink = () =>  addAvatar ? navigation.navigate("Login") : navigation.navigate("Registration")
+  
     
     return (
          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>

@@ -1,7 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import { useFonts } from 'expo-font';
-import {RegistrationScreen, LoginScreen, PostsScreen, CreatePostsScreen, ProfileScreen, CommentsScreen} from './src/screens'
+import 'react-native-gesture-handler';
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+import {RegistrationScreen, LoginScreen, PostsScreen, CreatePostsScreen, ProfileScreen, CommentsScreen, Home} from './src/screens'
+import { LogOut } from './src/components';
+
+
+const MainStack = createStackNavigator();
+
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -15,23 +24,50 @@ export default function App() {
     return null;
   }
   
+  
   return (
-    <View style={styles.container}>
-      {/* <RegistrationScreen/> */}
-      {/* <LoginScreen /> */}
-      {/* <PostsScreen /> */}
-      {/* <ProfileScreen /> */}
-       <CommentsScreen/>
-       {/* <CreatePostsScreen/> */}
-      <StatusBar style="auto" />
-    </View>
+    // <View style={styles.container}>
+    <NavigationContainer>
+      <MainStack.Navigator initialRouteName="Login">
+        <MainStack.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false }}/>
+        <MainStack.Screen name="Login" component={LoginScreen} options={{headerShown: false }}/>
+        <MainStack.Screen name="Home" component={Home} options={{headerShown: false     
+        }
+        } />
+         <MainStack.Screen name="CreatePost" component={CreatePostsScreen} options={{
+          title: "Створити публікацію",
+          headerStyle: styles.postsHeader,
+          headerTitleStyle: styles.textHeader,
+        }
+        } />
+      </MainStack.Navigator>
+    </NavigationContainer>
+      // {/* <RegistrationScreen/> */}
+      // {/* <LoginScreen /> */}
+      // {/* <PostsScreen /> */}
+      // {/* <ProfileScreen /> */}
+      //  {/* <CommentsScreen/> */}
+      //  {/* <CreatePostsScreen/> */}
+      // <StatusBar style="auto" />
+    // </View>
   );
 }
+const windowWidth = Dimensions.get('window').width;
+
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-
-  },
-  
+    postsHeader: {
+         borderBottomWidth: 1,
+        borderColor: "lightgray",
+         shadowColor: 'rgba(0, 0, 0, 0.30)',
+       },
+  textHeader: {
+        paddingTop: 12,
+        width: windowWidth - 32,
+        fontFamily: 'Roboto-Medium',
+        fontSize: 17,
+        textAlign: 'center',
+        lineHeight: 22,
+        color: '#212121',
+  }
 });

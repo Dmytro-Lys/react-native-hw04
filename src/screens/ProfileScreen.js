@@ -1,7 +1,7 @@
 import { StyleSheet, ImageBackground, View, ScrollView, Dimensions } from 'react-native';
 import { useState } from 'react';
 import bgImage from '../assets/images/photo_bg.jpg'
-import { AddAvatar, FormTitle, Footer, SvgButton, SvgPlusButton } from '../components';
+import { AddAvatar, FormTitle, Footer, SvgButton, SvgPlusButton, LogOut } from '../components';
 import defaultAvatar from '../assets/images/avatar.jpg'
 import GridSvg from "../assets/images/grid.svg";
 import UserSvg from "../assets/images/user-white.svg";
@@ -12,28 +12,29 @@ const ProfileScreen = () => {
   // console.log(avatar)
   const handleChangeAvatar = (_, value) => { setAvatar(value) }
   const userName = 'Natali Romanova'
-    const logOut = () => alert("LogOut")
+    // const logOut = () => alert("LogOut")
   
-    const addPost = () => alert("Add Post") 
+    // const addPost = () => alert("Add Post") 
 
-    const showEverythin = () => alert("Show everythin")
+    // const showEverythin = () => alert("Show everythin")
 
-    const showUser = () => alert("Show user")
+    // const showUser = () => alert("Show user")
 
   return (
     
     <ImageBackground source={bgImage} resizeMode="cover" style={styles.imageBg}>
         <View style={styles.profileContainer}>
-            <AddAvatar avatarImage={avatar} handleChange={handleChangeAvatar} />
-            <SvgButton styleButton={styles.buttonSvgLogOut} onPress={logOut} svgWidth='24' svgHeight='24' svgFile={LogOutSvg} />
+        <AddAvatar avatarImage={avatar} handleChange={handleChangeAvatar} />
+        <LogOut stylesLogOut={styles.logOut}/>
+            {/* <SvgButton styleButton={styles.buttonSvgLogOut} onPress={logOut} svgWidth='24' svgHeight='24' svgFile={LogOutSvg} /> */}
             <FormTitle text={userName} />
               
       </View>       
-       <Footer>
+       {/* <Footer>
                 <SvgButton styleButton={styles.buttonSvgFooter} onPress={showEverythin} svgWidth='24' svgHeight='24' svgFile={GridSvg}/>
                 <SvgButton styleButton={styles.buttonUserSvg} onPress={showUser} svgWidth='24' svgHeight='24' svgFile={UserSvg} stroke='white' />
                 <SvgPlusButton onPress={addPost} styleButton={styles.buttonSvgFooter} stroke='#212121' />
-            </Footer>
+            </Footer> */}
      </ImageBackground>  
         
   );
@@ -63,10 +64,10 @@ const styles = StyleSheet.create({
         maxWidth: 40,
         height: 40,
   },
-      buttonSvgLogOut: {
-        maxWidth: 40,
-        height: 40,
-        position: 'absolute',
+      logOut: {
+        // maxWidth: 40,
+        // height: 40,
+        // position: 'absolute',
         top: 22,
         right: 16,
   },

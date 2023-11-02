@@ -11,7 +11,7 @@ const SvgButton = ({ styleButton = {}, onPress, svgWidth, svgHeight, svgFile, fi
           </Pressable>    
     )
 }
-
+  
 
 const styles = StyleSheet.create({
   buttonBase: {
