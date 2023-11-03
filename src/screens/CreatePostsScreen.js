@@ -27,8 +27,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-         alignItems: 'flex-end',
-        paddingTop: 43,
+        alignItems: 'flex-end',
+         backgroundColor: 'white',
+        // paddingTop: 43,
     },
      buttonSvg: {
         maxWidth: 40,

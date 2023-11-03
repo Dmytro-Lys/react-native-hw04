@@ -31,15 +31,7 @@ export default function App() {
       <MainStack.Navigator initialRouteName="Login">
         <MainStack.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false }}/>
         <MainStack.Screen name="Login" component={LoginScreen} options={{headerShown: false }}/>
-        <MainStack.Screen name="Home" component={Home} options={{headerShown: false     
-        }
-        } />
-         <MainStack.Screen name="CreatePost" component={CreatePostsScreen} options={{
-          title: "Створити публікацію",
-          headerStyle: styles.postsHeader,
-          headerTitleStyle: styles.textHeader,
-        }
-        } />
+        <MainStack.Screen name="Home" component={Home} options={{headerShown: false}} />
       </MainStack.Navigator>
     </NavigationContainer>
       // {/* <RegistrationScreen/> */}

@@ -85,7 +85,7 @@ const CreatePostsForm = () => {
                         
                     </View> 
                 </View>
-                <SvgButton styleButton={!hasShowedKeyboard ? { ...styles.buttonTrash, bottom: 44 }: styles.buttonTrash} onPress={reset} svgWidth='24' svgHeight='24' svgFile={TrashSvg}  />
+                <SvgButton styleButton={!hasShowedKeyboard ? { ...styles.buttonTrash, bottom: 0 }: styles.buttonTrash} onPress={reset} svgWidth='24' svgHeight='24' svgFile={TrashSvg}  />
             </KeyboardAvoidingView> 
            
         </TouchableWithoutFeedback>     
