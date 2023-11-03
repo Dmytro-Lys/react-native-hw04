@@ -33,7 +33,7 @@ const Home = () => {
           return <Icons iconName={iconName} isFocused={focused}  />;
                     },
                     tabBarStyle: styles.containerFooter,
-                 animationEnabled: true,
+                //  animationEnabled: true,
       })}
             >
               <Tabs.Screen name="Posts" component={PostsScreen} options={{
@@ -49,7 +49,8 @@ const Home = () => {
                     headerTitleStyle: styles.textHeader,
                     headerLeft: () => (<GoBack/>),
                     tabBarShowLabel: false,
-                    tabBarVisible: false,
+                     tabBarStyle: styles.containerFooterHide,
+                    // tabBarVisible: false,
                    
                 }} />    
                 <Tabs.Screen name="Profile" component={ProfileScreen} options={{
@@ -82,6 +83,11 @@ const styles = StyleSheet.create({
   },
     containerFooter: {
          paddingHorizontal: (windowWidth - 210) / 2 ,
+  },
+  containerFooterHide: {
+    position: 'absolute',
+    left: 0,
+     bottom: -50,
     },
     logOut: {
        bottom: 0,
