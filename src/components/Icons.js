@@ -5,6 +5,7 @@ import GridSvg from "../assets/images/grid.svg";
 import GridWhiteSvg from "../assets/images/grid-white.svg";
 import UserSvg from "../assets/images/user.svg";
 import UserWhiteSvg from "../assets/images/user-white.svg";
+import PropTypes from "prop-types";
 
 const Icons = ({ iconName, isFocused, size = 24 }) => {
     const icons = {
@@ -43,3 +44,10 @@ const styles = StyleSheet.create({
     
 })
 export default Icons
+
+
+Icons.propTypes = {
+   iconName: PropTypes.string.isRequired ,
+    isFocused: PropTypes.bool.isRequired,
+    size : PropTypes.number
+}

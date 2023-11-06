@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import SvgButton from './SvgButton';
 import LogOutSvg from "../assets/images/log-out.svg";
+import PropTypes from "prop-types";
 
 const LogOut = ({stylesLogOut}) => {
     const navigation = useNavigation()
@@ -21,3 +22,8 @@ const styles = StyleSheet.create({
 })
 
 export default LogOut
+
+
+LogOut.propTypes = {
+   stylesLogOut: PropTypes.object.isRequired 
+}

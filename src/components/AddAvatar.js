@@ -2,6 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import Avatar from './Avatar';
 import SvgPlusButton from './SvgPlusButton';
 import defaultAvatar from '../assets/images/avatar.jpg'
+import PropTypes from "prop-types";
 
 const AddAvatar = ({ avatarImage, handleChange }) => {
     
@@ -44,3 +45,9 @@ const styles = StyleSheet.create({
 });
 
 export default AddAvatar
+
+
+AddAvatar.propTypes = {
+   avatarImage: PropTypes.number,
+   handleChange: PropTypes.func.isRequired
+}

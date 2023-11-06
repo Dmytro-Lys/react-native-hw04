@@ -34,5 +34,9 @@ export default FormSubmitButton;
 
 FormSubmitButton.propTypes = {
    text: PropTypes.string.isRequired ,
-   onPress: PropTypes.func.isRequired
+    onPress: PropTypes.func.isRequired,
+    marginTop: PropTypes.number,
+    buttonColor: PropTypes.string,
+    textColor: PropTypes.string,
+   disabled: PropTypes.bool
 }

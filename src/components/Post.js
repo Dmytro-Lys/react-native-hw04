@@ -5,6 +5,7 @@ import CommentSvg from "../assets/images/message-circle.svg";
 import CommentSvgFill from "../assets/images/message-circle-fill.svg";
 import exampPost from "../assets/images/post.jpg"
 import MapPinSvg from "../assets/images/map-pin.svg";
+import PropTypes from "prop-types";
 
 const Post = ({ dataPost, visibleLikes = false, visibleRegion = true }) => {
     const { postId, image, postName, postLocation, postComents, postLikes } = dataPost
@@ -133,3 +134,10 @@ const styles = StyleSheet.create({
 
     
 })
+
+
+Post.propTypes = {
+   dataPost: PropTypes.object.isRequired ,
+    visibleLikes: PropTypes.bool,
+    visibleRegion: PropTypes.bool
+}

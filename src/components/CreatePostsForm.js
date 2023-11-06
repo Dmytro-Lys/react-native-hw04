@@ -133,8 +133,6 @@ const styles = StyleSheet.create({
         width: 24,
         maxHeight: 24,
         height: 24,
-        // borderRadius: 40,
-        // backgroundColor: '#f6f6f6',
   }
  
 });

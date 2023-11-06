@@ -2,7 +2,7 @@ import {StyleSheet, View, Text } from "react-native"
 import { SvgXml } from 'react-native-svg';
 import LikeSvg from "../assets/images/thumbs-up.svg";
 import LikeSvgFill from "../assets/images/thumbs-up-fill.svg";
-
+import PropTypes from "prop-types";
 
 const Likes = ({ likesCount }) => {
     return (
@@ -37,3 +37,8 @@ const styles = StyleSheet.create({
 })
 
 export default Likes
+
+
+Likes.propTypes = {
+   likesCount: PropTypes.number.isRequired 
+}

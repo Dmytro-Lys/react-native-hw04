@@ -3,6 +3,7 @@ import CameraBlackSvg from "../assets/images/camera_black.svg";
 import CameraWhiteSvg from "../assets/images/camera_white.svg";
 import defaultPost from '../assets/images/post.jpg'
 import SvgButton from "./SvgButton";
+import PropTypes from "prop-types";
 
 const PostContent = ({ contentImage , handleChange }) => {
   
@@ -63,3 +64,9 @@ const styles = StyleSheet.create({
 });
 
 export default PostContent
+
+
+PostContent.propTypes = {
+   contentImage: PropTypes.object.isRequired ,
+    handleChange: PropTypes.func.isRequired
+}

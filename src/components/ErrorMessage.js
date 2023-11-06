@@ -1,4 +1,5 @@
 import { StyleSheet, Text } from "react-native";
+import PropTypes from "prop-types";
 
 const ErrorMessage = ({ message }) => {
     return(
@@ -19,3 +20,8 @@ const styles = StyleSheet.create({
 });
 
 export default ErrorMessage
+
+
+ErrorMessage.propTypes = {
+   message: PropTypes.string.isRequired 
+}

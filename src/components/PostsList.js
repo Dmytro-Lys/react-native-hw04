@@ -1,5 +1,6 @@
 import {  StyleSheet, ScrollView, Dimensions } from "react-native"
 import Post from "./Post"
+import PropTypes from "prop-types";
 
 const PostsList = ({posts, visibleLikes = false, visibleRegion = true}) => {
     return(
@@ -22,3 +23,10 @@ const styles = StyleSheet.create({
 })
 
 export default PostsList
+
+
+PostList.propTypes = {
+   posts: PropTypes.object.isRequired ,
+    visibleLikes: PropTypes.bool,
+    visibleRegion: PropTypes.bool
+}

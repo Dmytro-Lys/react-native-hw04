@@ -3,6 +3,7 @@ import { useState } from "react";
 import SvgButton from "./SvgButton";
 import SendSvg from "../assets/images/send.svg";
 import inputProps from "../assets/data/input.json"
+import PropTypes from "prop-types";
 
 
 const CommentInput = ({hasShowedKeyboard}) => {
@@ -85,3 +86,8 @@ const windowWidth = Dimensions.get('window').width;
 })   
 
 export default CommentInput
+
+
+CommentInput.propTypes = {
+   hasShowedKeyboard: PropTypes.bool.isRequired
+}

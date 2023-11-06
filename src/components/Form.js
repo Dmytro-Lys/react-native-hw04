@@ -162,5 +162,6 @@ Form.propTypes = {
    fieldsStyle: PropTypes.object.isRequired,
     formTitle: PropTypes.string.isRequired,
    submitButtonText: PropTypes.string.isRequired,
-   linkButtonText: PropTypes.string.isRequired
+  linkButtonText: PropTypes.string.isRequired,
+   addAvatar: PropTypes.bool
 }
