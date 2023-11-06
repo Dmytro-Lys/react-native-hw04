@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
 export default PostsList
 
 
-PostList.propTypes = {
-   posts: PropTypes.object.isRequired ,
+PostsList.propTypes = {
+   posts: PropTypes.array.isRequired ,
     visibleLikes: PropTypes.bool,
     visibleRegion: PropTypes.bool
 }
