@@ -57,7 +57,6 @@ const windowWidth = Dimensions.get('window').width;
          width: windowWidth - 32, 
        bottom: 0,
     left: 16,
-    // transform: [{translateX: -50}],
     },
     input: {
         padding: 16,

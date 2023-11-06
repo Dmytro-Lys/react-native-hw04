@@ -82,13 +82,12 @@ const CreatePostsForm = () => {
                             ? <FormSubmitButton text="Опублікувати" onPress={onSubmit} marginTop={0} buttonColor='#f6f6f6' textColor='#bdbdbd' disabled={true} />
                             : <FormSubmitButton text="Опублікувати" onPress={onSubmit} marginTop={0}/>
                         }
-                        
+                        <SvgButton styleButton={styles.buttonTrash} onPress={reset} svgWidth='24' svgHeight='24' svgFile={TrashSvg}  />    
                     </View> 
                 </View>
-                <SvgButton styleButton={!hasShowedKeyboard ? { ...styles.buttonTrash, bottom: 0 }: styles.buttonTrash} onPress={reset} svgWidth='24' svgHeight='24' svgFile={TrashSvg}  />
             </KeyboardAvoidingView> 
-           
-        </TouchableWithoutFeedback>     
+        </TouchableWithoutFeedback>  
+        
        
     )
 }
@@ -107,29 +106,23 @@ const styles = StyleSheet.create({
     rowGap: 32,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    backgroundColor: '#fff',
-    },
-    formWithKeyboard: {
-        paddingTop: 0,
-        marginTop: -200,
-        paddingBottom: 0,
-  },
+      backgroundColor: '#fff',
+      },
   formElements: {
     flex: 1,
     maxHeight: 116,  
     rowGap: 16,
     },
     buttonTrash: {
-        position: 'absolute',
-        bottom: 0,
-        left: '50%',
-        transform: [{translateX: -35}],
-        maxWidth: 70,
+         maxWidth: 70,
         width: 70,
         maxHeight: 40,
         height: 40,
         borderRadius: 40,
         backgroundColor: '#f6f6f6',
+        marginTop: '7%',
+        marginLeft: 'auto',
+        marginRight: 'auto',
     },
      buttonMap: {
         position: 'absolute',

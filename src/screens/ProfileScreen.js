@@ -1,40 +1,23 @@
-import { StyleSheet, ImageBackground, View, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet, ImageBackground, View, Dimensions } from 'react-native';
 import { useState } from 'react';
 import bgImage from '../assets/images/photo_bg.jpg'
-import { AddAvatar, FormTitle, Footer, SvgButton, SvgPlusButton, LogOut } from '../components';
+import { AddAvatar, FormTitle,  LogOut, PostsList } from '../components';
 import defaultAvatar from '../assets/images/avatar.jpg'
-import GridSvg from "../assets/images/grid.svg";
-import UserSvg from "../assets/images/user-white.svg";
-import LogOutSvg from "../assets/images/log-out.svg";
+import postsData from "../assets/data/posts.json"
 
 const ProfileScreen = () => {
   const [avatar, setAvatar] = useState(defaultAvatar)
-  // console.log(avatar)
   const handleChangeAvatar = (_, value) => { setAvatar(value) }
   const userName = 'Natali Romanova'
-    // const logOut = () => alert("LogOut")
-  
-    // const addPost = () => alert("Add Post") 
-
-    // const showEverythin = () => alert("Show everythin")
-
-    // const showUser = () => alert("Show user")
-
   return (
     
     <ImageBackground source={bgImage} resizeMode="cover" style={styles.imageBg}>
         <View style={styles.profileContainer}>
         <AddAvatar avatarImage={avatar} handleChange={handleChangeAvatar} />
         <LogOut stylesLogOut={styles.logOut}/>
-            {/* <SvgButton styleButton={styles.buttonSvgLogOut} onPress={logOut} svgWidth='24' svgHeight='24' svgFile={LogOutSvg} /> */}
             <FormTitle text={userName} />
-              
+           {postsData.length>0 && <PostsList posts={postsData} visibleLikes={true} visibleRegion = {false} />}   
       </View>       
-       {/* <Footer>
-                <SvgButton styleButton={styles.buttonSvgFooter} onPress={showEverythin} svgWidth='24' svgHeight='24' svgFile={GridSvg}/>
-                <SvgButton styleButton={styles.buttonUserSvg} onPress={showUser} svgWidth='24' svgHeight='24' svgFile={UserSvg} stroke='white' />
-                <SvgPlusButton onPress={addPost} styleButton={styles.buttonSvgFooter} stroke='#212121' />
-            </Footer> */}
      </ImageBackground>  
         
   );
@@ -46,7 +29,6 @@ const styles = StyleSheet.create({
   imageBg: {
     flex: 1,
     flexDirection: 'column',
-    // alignItems: 'flex-end',
     paddingTop: 119,
   },
    profileContainer: {
@@ -65,9 +47,6 @@ const styles = StyleSheet.create({
         height: 40,
   },
       logOut: {
-        // maxWidth: 40,
-        // height: 40,
-        // position: 'absolute',
         top: 22,
         right: 16,
   },

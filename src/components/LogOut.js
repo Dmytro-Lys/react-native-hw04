@@ -17,8 +17,6 @@ const styles = StyleSheet.create({
     maxWidth: 40,
     height: 40,
     position: 'absolute',
-    // bottom: 0,
-    // right: 10,
   }
 })
 

@@ -15,9 +15,7 @@ const Home = () => {
 
    
     return (
-        <>
-        {/* <PostsScreen /> */}
-            <Tabs.Navigator
+        <Tabs.Navigator
              screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
           let iconName;
@@ -33,7 +31,6 @@ const Home = () => {
           return <Icons iconName={iconName} isFocused={focused}  />;
                     },
                     tabBarStyle: styles.containerFooter,
-                //  animationEnabled: true,
       })}
             >
               <Tabs.Screen name="Posts" component={PostsScreen} options={{
@@ -50,8 +47,6 @@ const Home = () => {
                     headerLeft: () => (<GoBack/>),
                     tabBarShowLabel: false,
                      tabBarStyle: styles.containerFooterHide,
-                    // tabBarVisible: false,
-                   
                 }} />    
                 <Tabs.Screen name="Profile" component={ProfileScreen} options={{
                     headerShown: false,
@@ -59,7 +54,6 @@ const Home = () => {
                 }} />
           
          </Tabs.Navigator>
-        </>    
    )
 }
 

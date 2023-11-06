@@ -1,11 +1,10 @@
 import {  ScrollView, StyleSheet, View, Text, Image, Dimensions, TouchableWithoutFeedback, KeyboardAvoidingView, Keyboard } from "react-native";
-import { Header, Avatar, Footer, SvgButton, CommentInput } from "../components";
+import { Header,  SvgButton, CommentInput } from "../components";
 import {useState, useEffect} from 'react'
 import defaultAvatar from '../assets/images/avatar.jpg'
 import PostImage from '../assets/images/second-post.jpg'
 import ArrowSvg from "../assets/images/arrow.svg";
-import GridSvg from "../assets/images/grid.svg";
-import UserSvg from "../assets/images/user.svg";
+
 
 const CommentsScreen = () => {
 
@@ -64,7 +63,6 @@ const styles = StyleSheet.create({
         paddingTop: 32,
         paddingHorizontal: 16,
         width: windowWidth,
-        // paddingHorizontal: 16,
     },
      buttonSvg: {
         maxWidth: 40,

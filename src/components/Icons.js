@@ -1,4 +1,4 @@
-import { StyleSheet, View,  Dimensions } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { SvgXml } from 'react-native-svg';
 import SvgPlus from "./SvgPlus";
 import GridSvg from "../assets/images/grid.svg";
@@ -36,7 +36,6 @@ const styles = StyleSheet.create({
        width: 70,
         maxHeight: 40,
         borderRadius: 40,
-        // paddingTop: 43,
     },
     focusedIcon: {
         backgroundColor: '#FF6C00',

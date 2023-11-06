@@ -27,17 +27,13 @@ const PostContent = ({ contentImage , handleChange }) => {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    // flex: 1,
-    // marginBottom: 32,
-    // maxHeight: 300,
-    // height: 300,
+   
    },
    contentImage: {
-      // flex: 1,
+      
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 8,
-      // maxWidth: '100%',
       maxHeight: 240,
       marginBottom: 8,
       height: 240,
@@ -60,7 +56,6 @@ const styles = StyleSheet.create({
    contentText: {
      fontFamily: 'Roboto-Regular',
      fontSize: 16,
-    //  lineHeight: 22,
      color: "#BDBDBD",
      
    }

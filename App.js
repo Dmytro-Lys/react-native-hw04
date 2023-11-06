@@ -1,12 +1,12 @@
-// import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+
+import { StyleSheet, Dimensions } from 'react-native';
 import { useFonts } from 'expo-font';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import {RegistrationScreen, LoginScreen, PostsScreen, CreatePostsScreen, ProfileScreen, CommentsScreen, Home} from './src/screens'
-import { LogOut } from './src/components';
+import {RegistrationScreen, LoginScreen,  Home} from './src/screens'
+
 
 
 const MainStack = createStackNavigator();
@@ -26,22 +26,14 @@ export default function App() {
   
   
   return (
-    // <View style={styles.container}>
     <NavigationContainer>
       <MainStack.Navigator initialRouteName="Login">
         <MainStack.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false }}/>
         <MainStack.Screen name="Login" component={LoginScreen} options={{headerShown: false }}/>
-        <MainStack.Screen name="Home" component={Home} options={{headerShown: false}} />
+        <MainStack.Screen name="Home" component={Home} options={{ headerShown: false }} />
       </MainStack.Navigator>
     </NavigationContainer>
-      // {/* <RegistrationScreen/> */}
-      // {/* <LoginScreen /> */}
-      // {/* <PostsScreen /> */}
-      // {/* <ProfileScreen /> */}
-      //  {/* <CommentsScreen/> */}
-      //  {/* <CreatePostsScreen/> */}
-      // <StatusBar style="auto" />
-    // </View>
+ 
   );
 }
 const windowWidth = Dimensions.get('window').width;

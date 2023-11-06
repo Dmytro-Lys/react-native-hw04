@@ -1,39 +1,23 @@
-import {  ScrollView, StyleSheet, View, Text } from "react-native";
-import { Header, Avatar, Footer, SvgButton, SvgPlusButton } from "../components";
+import {  StyleSheet, View, Text } from "react-native";
+import { Avatar,  PostsList } from "../components";
 import defaultAvatar from '../assets/images/avatar.jpg'
-import LogOutSvg from "../assets/images/log-out.svg";
-import GridSvg from "../assets/images/grid.svg";
-import UserSvg from "../assets/images/user.svg";
-
+import postsData from "../assets/data/posts.json"
 
 const PostsScreen = () => {
-    const logOut = () => alert("LogOut")
-    const addPost = () => alert("Add Post")
-
-    const showEverythin = () => alert("Show everythin")
-
-    const showUser = () => alert("Show user")
     
     return (
         <View style={styles.container}>
-            {/* <Header title="Публікації">
-                <SvgButton styleButton={styles.buttonSvg} onPress={logOut} svgWidth='24' svgHeight='24' svgFile={LogOutSvg} />
-            </Header> */}
-            <ScrollView style={styles.postsContainer}>
+              <View style={styles.postsContainer}>
                 <View style={styles.userContainer}>
                     <Avatar avatarImage={defaultAvatar}  />
                     <View style={styles.userTextContainer}>
                         <Text style={styles.userText}>Natali Romanova</Text>
                         <Text style={styles.emailText}>test@mail.com</Text>
                     </View>
+                   
                 </View>    
-            </ScrollView>
-{/* 
-            <Footer>
-                <SvgButton styleButton={styles.buttonSvgFooter} onPress={showEverythin} svgWidth='24' svgHeight='24' svgFile={GridSvg}/>
-                <SvgPlusButton onPress={addPost} styleButton={styles.buttonAdd} stroke='white' />
-                <SvgButton styleButton={styles.buttonSvgFooter} onPress={showUser} svgWidth='24' svgHeight='24' svgFile={UserSvg} />
-            </Footer> */}
+                 {postsData.length>0 && <PostsList posts={postsData}/>}
+            </View>
 
        </View>     
   )
@@ -45,7 +29,6 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         backgroundColor: 'white',
-        // paddingTop: 43,
     },
     postsContainer: {
         flex: 1,
@@ -57,6 +40,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         columnGap: 8,
+        marginBottom: 32,
     },
     userTextContainer: {
         flex: 1,
