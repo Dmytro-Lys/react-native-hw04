@@ -79,9 +79,7 @@ const styles = StyleSheet.create({
          paddingHorizontal: (windowWidth - 210) / 2 ,
   },
   containerFooterHide: {
-    position: 'absolute',
-    left: 0,
-     bottom: -50,
+      display: 'none',
     },
     logOut: {
        bottom: 0,
